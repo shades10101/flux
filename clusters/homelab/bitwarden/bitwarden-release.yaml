@@ -1,0 +1,22 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: bitwarden
+  namespace: bitwarden
+spec:
+  chart:
+    spec:
+      chart: bitwarden
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: bitwarden
+  interval: 5m0s
+  releaseName: bitwarden
+  values:
+    general:
+      domain: k8s-homelab
+    secrets:
+      secretName: bitwarden-installation-secrets
+    sharedStorageClassName: nfs-client
