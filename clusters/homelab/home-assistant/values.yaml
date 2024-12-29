@@ -1,0 +1,25 @@
+# helm install home-assistant pajikos/home-assistant -f values.yaml --namespace home
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 5Gi
+  storageClass: "nfs-client"
+
+hostPort:
+  # Enable 'hostPort' or not
+  enabled: false
+  port: 8123
+
+# Specifies if the containers should be started in hostNetwork mode.
+#
+# Required for use auto-discovery feature of Home Assistant
+hostNetwork: true
+
+addons:
+  # Code-server addon configuration
+  codeserver:
+    # Enable or disable the code-server addon
+    enabled: enable
+    service:
+      # Service type (ClusterIP, NodePort, LoadBalancer, or ExternalName)
+      type: LoadBalancer
