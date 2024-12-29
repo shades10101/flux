@@ -1,7 +1,0 @@
-secrets:
-  secretName: bitwarden-installation-secrets
-
-sharedStorageClassName: nfs-client
-
-general:
-  domain: "k8s-homelab"
