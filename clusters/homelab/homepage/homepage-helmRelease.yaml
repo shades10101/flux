@@ -15,22 +15,67 @@ spec:
   interval: 1m0s
   releaseName: homepage
   values:
-    kubernetes:
-      mode: cluster
-    settings: null
-    widgets:
-    - kubernetes:
-        cluster:
-          cpu: true
-          label: cluster
-          memory: true
-          show: true
-          showLabel: true
-        nodes:
-          cpu: true
-          memory: true
-          show: true
-          showLabel: true
-    - search:
-        provider: duckduckgo
-        target: _blank
+    config:
+      bookmarks:
+      - Developer:
+        - Github:
+          - abbr: GH
+            href: https://github.com/
+      kubernetes:
+        mode: cluster
+      services:
+      - k8s hosted apps:
+        - grafana:
+            description: Grafana Dashboard
+            href: http://10.88.111.203:80
+            status: Online
+        - prometheus:
+            description: Prometheus Monitoring
+            href: http://10.88.111.204:80
+            status: Online
+        - vscode:
+            description: vscode online
+            href: http://10.88.111.201:12321
+            status: Online
+        - pihole-web:
+            description: Pi-hole Web Interface
+            href: http://10.88.111.200:80
+            status: Online
+        - home-assistant:
+            description: home assistant
+            href: http://10.88.111.29:8123/
+            status: Online
+      - Infra:
+        - hv-one:
+            description: proxmox via hv-one
+            href: http://10.88.111.252:8006
+            status: Online
+        - hv-two:
+            description: proxmox via hv-two
+            href: http://10.88.111.253:8006
+            status: Online
+      - My Third Group:
+        - My Third Service:
+            description: "Homepage is \U0001F60E"
+            href: http://localhost/
+      settings: null
+      widgets:
+      - kubernetes:
+          cluster:
+            cpu: true
+            label: cluster
+            memory: true
+            show: true
+            showLabel: true
+          nodes:
+            cpu: true
+            memory: true
+            show: true
+            showLabel: true
+      - search:
+          provider: duckduckgo
+          target: _blank
+    enableRbac: true
+    serviceAccount:
+      create: true
+      name: homepage
