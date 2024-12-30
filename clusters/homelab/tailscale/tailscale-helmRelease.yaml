@@ -1,0 +1,23 @@
+# THIS FILE IS IN FLUX IGNORE FILE
+# Replace oauth entries and run kubectl apply -f tailscale-helmRelease.yaml
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: tailscale-operator
+  namespace: tailscale
+spec:
+  chart:
+    spec:
+      chart: tailscale-operator
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: tailscale
+        namespace: tailscale
+  interval: 1m0s
+  releaseName: tailscale-operator
+  values:
+    oauth:
+      clientId: REPLACE_ME
+      clientSecret: REPLACE_ME
