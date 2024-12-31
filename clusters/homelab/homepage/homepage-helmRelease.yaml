@@ -39,7 +39,7 @@ spec:
             status: Online
         - pihole-web:
             description: Pi-hole Web Interface
-            href: http://10.88.111.202:80
+            href: http://10.88.111.202:80/admin
             status: Online
         - home-assistant:
             description: home assistant
